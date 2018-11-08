@@ -10,7 +10,7 @@ export default {
   name: "stockTest",
   data() {
     return {
-      url: "http://sandbox-api.brewerydb.com/v2/beers?key=a8079a799453779042699fa42859cec9",
+      url: "https://sandbox-api.brewerydb.com/v2/beers?key=a8079a799453779042699fa42859cec9",
       crawl: "Loading..."
     };
   },
