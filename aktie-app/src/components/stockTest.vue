@@ -24,8 +24,8 @@ export default {
         .get(this.url)
         
         .then(resp => {
-          console.log(resp.data.id[0])
-          //this.crawl = resp.data.id[0];
+          console.log(resp.data)
+          this.crawl = resp.data;
         })
         .catch(err => console.log(err));
     }
