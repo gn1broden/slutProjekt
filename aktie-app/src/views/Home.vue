@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <startPage msg="This is maj sajt"/>
+    <startPage msg="Välkommen!"/>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 import startPage from '@/components/startPage.vue'
 
 export default {
-  name: 'startpage',
+  name: 'home',
   components: {
     startPage
   }

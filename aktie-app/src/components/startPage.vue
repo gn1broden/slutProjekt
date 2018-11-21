@@ -2,8 +2,8 @@
     <div class="startPage">
         <h1>{{msg}}</h1>
         <section class="sektionOne">
-            <p>Stock test</p>
-            <stockTest />
+            <h2>En random öl</h2>
+            <randomBeer />
         </section>
         <section class="sektionTwo">
             <p>sektion 2</p>
@@ -17,12 +17,12 @@
 
 
 <script>
-import stockTest from '@/components/stockTest.vue'
+import randomBeer from '@/components/stockTest.vue'
 
 export default {
   name: 'startPage',
   components:{
-      stockTest
+      randomBeer
   },
   props: {
     msg: String
