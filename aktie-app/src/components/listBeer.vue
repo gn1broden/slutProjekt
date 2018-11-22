@@ -1,9 +1,11 @@
 <template>
-    <div class="beer-list">
+    <div class="beerList">
         <h1>Öl listning</h1>
         <div class="beer-wrapper">
             <div class="beer" v-for="beer in beerList" v-bind:key="beer.beer">
-
+                <div>{{beer.nameDisplay}}</div>
+                <div>{{beer.abv}}</div>
+                <div>{{beer.style.name}}</div>
             </div>
         </div>
     </div>

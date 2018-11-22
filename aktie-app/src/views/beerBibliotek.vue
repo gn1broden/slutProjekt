@@ -1,6 +1,6 @@
 <template>
     <div class="beerBibliotek">
-        <listBeer>
+        <listBeer />
     </div>
 </template>
 
@@ -9,7 +9,7 @@
 import listBeer from '@/components/listBeer.vue'
 
 export default {
-  name: "beerBibliotek",
+  name: "BeerBibliotek",
   components: {
     listBeer
   }

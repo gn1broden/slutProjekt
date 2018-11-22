@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import beerBibliotek from './views/beerBibliotek.vue'
+import BeerBibliotek from './views/BeerBibliotek.vue'
 
 Vue.use(Router)
 
@@ -15,7 +15,7 @@ export default new Router({
     {
       path: '/beerbibliotek',
       name: 'beerBibliotek',
-      component: beerBibliotek
+      component: BeerBibliotek
     },
     {
       path: '/about',
