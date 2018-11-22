@@ -17,7 +17,7 @@
 
 
 <script>
-import randomBeer from '@/components/stockTest.vue'
+import randomBeer from '@/components/randomBeer.vue'
 
 export default {
   name: 'startPage',
