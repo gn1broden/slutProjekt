@@ -4,15 +4,18 @@
         <div class="select-wrapper">
             <span>Gå till sida:</span>
             <select name="select-beer" id="select-beer" v-on:change="changePage">
-                <option  v-for="page in pageList" v-bind:key="page.page_id" v-bind:value="page">{{page}}</option>
+                <option v-for="page in pageList" v-bind:key="page.page_id" v-bind:value="page">{{page}}</option>
             </select>
         </div>
         <div class="beer-list">
             <div class="beer" v-for="beer in beerList" v-bind:key="beer.id">
-                <h3 class="title">{{beer.nameDisplay}}</h3>
+                <a  href="#/beerpage" v-bind:class="beer.id" v-on:click="toProduct($event)">
+                    <h3 class="title" >{{beer.nameDisplay}}</h3>
+                </a>
                 <img src="../assets/beerbootle.jpg" />
                 <p>{{beer.abv}}</p>
                 <!-- <div>{{beer.name}}</div> -->
+                <button v-on:click="addToFavorites(beer)">Lägg till favorit</button>
             </div>
         </div>
     </div>
@@ -33,17 +36,49 @@ export default {
     created: function(){
         this.loadBeers();
         
+        
+    },
+    mounted(){   
+            
+       
     },
     methods:{
+        matchHeights(objectsName){
+            let objects = this.$el.querySelectorAll(objectsName);
+            //let styleObjects = this.$el.querySelector('.beer')
+            
+            console.log(objects[0].offsetHeight);
+            let heights = 0;
+        
+            objects.forEach(element => {
+
+                if(element.offsetHeight > heights){
+                    heights = element.offsetHeight;
+                    console.log(heights);
+                }
+
+            });
+
+            objects.forEach(element =>{
+                element.style.height = heights + "px";
+                console.log(heights)
+            });
+
+        },
         loadBeers(){
              this.$http
             .get(this.url)
             .then(resp => {
-            console.log(resp.data.data);
-            this.beerList = resp.data.data;
-            this.totalPages = parseInt(resp.data.numberOfPages);
-            console.log(this.totalPages);
-            this.makeOptions();
+                console.log(resp.data.data);
+                this.beerList = resp.data.data;
+                this.totalPages = parseInt(resp.data.numberOfPages);
+                console.log(this.totalPages);
+                this.makeOptions();
+                setTimeout(() =>{
+                    this.matchHeights('.beer');
+                },2000)
+            
+  
             })
             .catch(err => console.log(err));
         },
@@ -63,7 +98,21 @@ export default {
             console.log("https://sandbox-api.brewerydb.com/v2/beers?p="+beerSelect.value.toString()+"&key=a8079a799453779042699fa42859cec9");
             this.url = "https://sandbox-api.brewerydb.com/v2/beers?p="+beerSelect.value.toString()+"&key=a8079a799453779042699fa42859cec9";
             this.loadBeers();
+        },
+        toProduct(e){
+            console.log(e.target.parentElement.className)
+            let productId = e.target.parentElement.className;
+            this.$store.commit('setStoreBeerId', productId);
+            console.log(this.$store.state.productId);
+        },
+        addToFavorites(e){
+            //let favorite = e.target.parentElement;
+            console.log(e);
+            this.$store.commit('addFavorites', e);
         }
+    },
+    actions:{
+        
     }
 }
 
@@ -86,6 +135,7 @@ export default {
         border: 1px solid #eee;
         padding: 5px;
         min-height: 350px;
+        a{}
         .title{
             min-height:40px;
         }
