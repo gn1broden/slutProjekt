@@ -24,7 +24,37 @@ export default new Vuex.Store({
     },
     addFavorites: (state, favo) => {
 
-      state.favorites.push(favo);
+      let array = state.favorites;
+      let exists = false;
+
+      for(let i= 0; i < array.length; i++){
+        if(array[i].nameDisplay==favo.nameDisplay){
+          exists = true;
+        }
+      }
+
+      if(!exists){
+        state.favorites.push(favo);
+      }
+      
+    },
+    removeFavorit: (state, name) =>{
+
+      let array = state.favorites;
+
+      console.log(array[0].nameDisplay);
+      console.log(name);
+      
+      for(let i= 0; i < array.length; i++){
+
+        if(array[i].nameDisplay == name){
+          
+          array.splice(i,1); 
+          console.log(i);
+        }
+        
+
+      }
 
     }
 

@@ -47,21 +47,21 @@ export default {
             let objects = this.$el.querySelectorAll(objectsName);
             //let styleObjects = this.$el.querySelector('.beer')
             
-            console.log(objects[0].offsetHeight);
+            //console.log(objects[0].offsetHeight);
             let heights = 0;
         
             objects.forEach(element => {
 
                 if(element.offsetHeight > heights){
                     heights = element.offsetHeight;
-                    console.log(heights);
+                    //console.log(heights);
                 }
 
             });
 
             objects.forEach(element =>{
                 element.style.height = heights + "px";
-                console.log(heights)
+                //console.log(heights)
             });
 
         },
@@ -69,10 +69,10 @@ export default {
              this.$http
             .get(this.url)
             .then(resp => {
-                console.log(resp.data.data);
+                //console.log(resp.data.data);
                 this.beerList = resp.data.data;
                 this.totalPages = parseInt(resp.data.numberOfPages);
-                console.log(this.totalPages);
+                //console.log(this.totalPages);
                 this.makeOptions();
                 setTimeout(() =>{
                     this.matchHeights('.beer');
@@ -95,20 +95,20 @@ export default {
         },
         changePage(){
             let beerSelect = document.querySelector("#select-beer");
-            console.log(beerSelect);
-            console.log("https://sandbox-api.brewerydb.com/v2/beers?p="+beerSelect.value.toString()+"&key=a8079a799453779042699fa42859cec9");
+            //console.log(beerSelect);
+            //console.log("https://sandbox-api.brewerydb.com/v2/beers?p="+beerSelect.value.toString()+"&key=a8079a799453779042699fa42859cec9");
             this.url = "https://sandbox-api.brewerydb.com/v2/beers?p="+beerSelect.value.toString()+"&key=a8079a799453779042699fa42859cec9";
             this.loadBeers();
         },
         toProduct(e){
-            console.log(e.target.parentElement.className)
+            //console.log(e.target.parentElement.className)
             let productId = e.target.parentElement.className;
             this.$store.commit('setStoreBeerId', productId);
-            console.log(this.$store.state.productId);
+            //console.log(this.$store.state.productId);
         },
         addToFavorites(e){
             //let favorite = e.target.parentElement;
-            console.log(e);
+            //console.log(e);
             this.$store.commit('addFavorites', e);
         }
     },

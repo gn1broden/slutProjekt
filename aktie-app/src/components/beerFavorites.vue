@@ -8,6 +8,7 @@
                 <img src="../assets/beerbootle.jpg" />
                 <p> Alc: ~{{favorit.abv}}%</p>
                 <!-- <div>{{beer.name}}</div> -->
+                <div class="button" v-on:click="removeFromFavorit(favorit.nameDisplay)"> ta bort från favvo</div>
             </div>
         </div>
         
@@ -24,10 +25,13 @@ export default {
     },
     methods:{
         toProduct(e){
-            console.log(e.target.parentElement.className)
+            //console.log(e.target.parentElement.className)
             let productId = e.target.parentElement.className;
             this.$store.commit('setStoreBeerId', productId);
-            console.log(this.$store.state.productId);
+            //console.log(this.$store.state.productId);
+        },
+        removeFromFavorit(name){
+            this.$store.commit('removeFavorit', name);
         }
     }
     
@@ -43,13 +47,10 @@ export default {
 }
 
 @media screen and (max-width: 700px) {
-
-
-        .beer{
-            width: 45%;
-        }
-
+    .beer{
+        width: 45%;
     }
+}
 
 </style>
 

@@ -2,7 +2,7 @@
     <div class="randomBeer">
       <h2>En random öl</h2>
         <h3 class="beer-title">{{title}}</h3>
-        <p class="beer-abv ">Alkoholhalt: ~<span :class="alcoClass">{{abv}}%</span></p>
+        <p class="beer-abv ">Alkoholhalt:<span :class="alcoClass">~{{abv}}%</span></p>
         <p class="type">Öltyp: <span>{{type}}</span></p>
         <p class="beer-category">Kategori: <span>{{category}}</span></p>
         <h4>Beskrivning</h4>
@@ -71,16 +71,6 @@ export default {
     padding: 30px;
     text-align: left;
   }
-  .beer-abv{
-    .high-alco{
-    color: red;
-    }
-    .medium-alco{
-      color: yellow;
-    }
-    .good-alco{
-      color: green;
-    }
-  }
+  
 </style>
 
