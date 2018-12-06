@@ -20,7 +20,7 @@ export default new Router({
       component: BeerBibliotek
     },
     {
-      path: '/beerPage/:id',
+      path: '/beerPage',
       name: 'beerPage',
       component: BeerPage
     },

@@ -15,7 +15,7 @@
                 <img src="../assets/beerbootle.jpg" />
                 <p>{{beer.abv}}</p>
                 <!-- <div>{{beer.name}}</div> -->
-                <button v-on:click="addToFavorites(beer)">Lägg till favorit</button>
+                <div class="button" v-on:click="addToFavorites(beer)">Lägg till favorit</div>
             </div>
         </div>
     </div>
@@ -76,6 +76,7 @@ export default {
                 this.makeOptions();
                 setTimeout(() =>{
                     this.matchHeights('.beer');
+                    this.matchHeights('.beer .title')
                 },2000)
             
   
@@ -119,37 +120,40 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .beerList{
-        display: inline-block;
-        //This is just the template
-    }
-    .beer-list{
-        display: inline-block;
-    }
-    .beer{
-        display: inline-block;
-        width: 18%;
-        margin-right: 0.8%;
-        margin-bottom: 30px;
-        float: left;
-        border: 1px solid #eee;
-        padding: 5px;
-        min-height: 350px;
-        a{}
-        .title{
-            min-height:40px;
-        }
-        img{
-            max-width: 100px;
-        }
+    // .beerList{
+    //     display: inline-block;
+    //     //This is just the template
+    // }
+    // .beer-list{
+    //     display: inline-block;
+    // }
+    // .beer{
+    //     display: inline-block;
+    //     width: 18%;
+    //     margin-right: 0.8%;
+    //     margin-bottom: 30px;
+    //     float: left;
+    //     border: 1px solid #eee;
+    //     padding: 5px;
+    //     min-height: 350px;
+    //     a{}
+    //     .title{
+    //         min-height:40px;
+    //     }
+    //     img{
+    //         max-width: 100px;
+    //     }
 
-    }
+    // }
     .select-wrapper{
         display: inline-block;
-        width: 100%;
+        float: right;
         margin-bottom: 15px;
+        margin-right: 10px;
         span{
             text-align: right;
+            margin-right: 15px;
+            line-height: 36px;
         }
         select{
         height: 36px;
@@ -158,6 +162,15 @@ export default {
         font-size: 16px;
         float: right;
         }
+    }
+
+    @media screen and (max-width: 700px) {
+
+
+        .beer{
+            width: 45%;
+        }
+
     }
     
 

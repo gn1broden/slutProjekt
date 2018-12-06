@@ -1,0 +1,38 @@
+#page-wrapper{
+    max-width: $page-width;
+    width: 100%;
+    padding: 0 $page-padding;
+    background: #f5f5f5;
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+.button{
+    min-height: 30px;
+    line-height: 30px;
+    background:$button-color;
+    color: white;
+    border: 1px solid #eee;
+    &:hover{
+        background: lighten($button-color, 5%);
+    }
+}
+
+a{
+    text-decoration: none;
+    color: $font-color;
+    &:visited{
+        color: $font-color;
+    }
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    #page-wrapper{
+        padding: 0px;
+    }
+}
+

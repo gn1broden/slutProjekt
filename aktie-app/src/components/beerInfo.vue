@@ -1,5 +1,6 @@
 <template>
     <div class="beer-info">
+        <img :src="beerLabel" alt="beer-label" />
         <h3 class="beer-title">{{title}}</h3>
         <p class="beer-abv ">Alkoholhalt: <span :class="alcoClass">{{abv}}</span></p>
         <p class="type">Öltyp: <span>{{type}}</span></p>
@@ -25,6 +26,7 @@ export default {
       category: "Loading...",
       description: "Loading...",
       alcoClass: "good-alco",
+      beerLabel: require("@/assets/no-image-found.png")
     };
   },
   computed:{
@@ -67,7 +69,8 @@ export default {
         this.abv = parseFloat(resp.data.data.abv);
         this.type = resp.data.data.style.name;
         this.category = resp.data.data.style.category.name;
-        this.description = resp.data.data.style.description
+        this.description = resp.data.data.style.description;
+        this.beerLabel = resp.data.data.labels.icon;
         this.checkAbv();
       })
       .catch(err => console.log(err));
@@ -77,12 +80,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .randomBeer{
+  .beer-info{
     min-width: 300px;
     max-width: 700px;
-    background: #e4e4e4;
     margin: 0 auto;
     padding: 30px;
+    text-align: left;
+    img{
+      float: right;
+      @media screen and (max-width: 700px) {
+        float: inherit;
+        display: block;
+        margin: 0 auto;
+
+      }
+    }
   }
   .beer-abv{
     .high-alco{

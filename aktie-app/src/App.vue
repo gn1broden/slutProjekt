@@ -3,9 +3,11 @@
     <div id="nav">
       <router-link to="/">Start</router-link>
       <router-link to="/beerbibliotek">Beerbiblioteket</router-link>
-      <router-link to="/favorites">favoriter</router-link>
+      <router-link to="/favorites">Favoriter</router-link>
     </div>
-    <router-view/>
+    <div id="page-wrapper">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -20,18 +22,26 @@
 
 
 <style lang="scss">
+@import './css/variabler.scss';
+@import './css/general.scss';
+
 #app {
+  //background: rgb(212, 212, 212);
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
+
+
+
 #nav {
-  background: rgb(228, 228, 228);
+  //background: $primary-color;
+  border-bottom: 2px solid #eee;
   padding: 30px;
   a {
-    font-size: 22px;
+    font-size: 18px;
     text-decoration: none;
     font-weight: bold;
     color: #2c3e50;
@@ -46,9 +56,10 @@
   display: inline-block;
   width: 100%;
   .beer{
+    background: white;
     display: inline-block;
-    width: 18%;
-    margin-right: 0.8%;
+    width: 22%;
+    margin-right: 1.5%;
     margin-bottom: 30px;
     float: left;
     border: 1px solid #eee;
