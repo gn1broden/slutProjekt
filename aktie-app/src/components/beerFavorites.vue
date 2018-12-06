@@ -6,7 +6,7 @@
                     <h3 class="title" >{{favorit.nameDisplay}}</h3>
                 </a>
                 <img src="../assets/beerbootle.jpg" />
-                <p>{{favorit.abv}}</p>
+                <p> Alc: ~{{favorit.abv}}%</p>
                 <!-- <div>{{beer.name}}</div> -->
             </div>
         </div>
@@ -41,6 +41,15 @@ export default {
     display: inline-block;
     width: 100%;
 }
+
+@media screen and (max-width: 700px) {
+
+
+        .beer{
+            width: 45%;
+        }
+
+    }
 
 </style>
 

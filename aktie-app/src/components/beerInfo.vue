@@ -2,7 +2,7 @@
     <div class="beer-info">
         <img :src="beerLabel" alt="beer-label" />
         <h3 class="beer-title">{{title}}</h3>
-        <p class="beer-abv ">Alkoholhalt: <span :class="alcoClass">{{abv}}</span></p>
+        <p class="beer-abv ">Alkoholhalt: ~<span :class="alcoClass">{{abv}}%</span></p>
         <p class="type">Öltyp: <span>{{type}}</span></p>
         <p class="beer-category">Kategori: <span>{{category}}</span></p>
         <h4>Beskrivning</h4>
